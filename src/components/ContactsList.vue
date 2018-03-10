@@ -1,7 +1,5 @@
 <template>
   <div class="ContactsList">
-    <h2 class="ContactsList__header">Contacts</h2>
-
     <ul class="ContactsList__list">
       <contacts-list-group v-for="(contacts, groupName) in groupedContacts"
         :key="groupName"
@@ -50,13 +48,6 @@ export default {
 </script>
 
 <style>
-.ContactsList__header {
-  padding: 0 1.75rem;
-  font-size: 3rem;
-  font-weight: bold;
-  color: #5d647a;
-}
-
 .ContactsList__list {
   margin: 0;
   padding: 0;
