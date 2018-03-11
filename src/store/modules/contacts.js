@@ -11,9 +11,12 @@ const state = {
 const getters = {
   contacts: prop('contacts'),
   query: prop('query'),
-  filteredContacts: ({ contacts, query }) => filter(
-    pipe(prop('name'), toLower, contains(query)),
-  )(contacts),
+
+  filteredContacts({ contacts, query }) {
+    return filter(
+      pipe(prop('name'), toLower, contains(query)),
+    )(contacts);
+  },
 };
 
 // actions

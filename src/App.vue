@@ -75,4 +75,8 @@ html {
   font-weight: bold;
   color: #5d647a;
 }
+
+.App__body {
+  width: 100%;
+}
 </style>

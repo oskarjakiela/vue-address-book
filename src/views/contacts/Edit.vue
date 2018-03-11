@@ -1,16 +1,16 @@
 <template>
-  <div class="Home">
-    <h1>Home</h1>
+  <div class="ContactsEdit">
+    <h1>ContactsEdit</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
+  name: 'ContactsEdit',
 };
 </script>
 
 <style scoped>
-.Home {
+.ContactsEdit {
 }
 </style>

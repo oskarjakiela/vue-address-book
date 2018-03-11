@@ -1,7 +1,9 @@
 <template>
   <li class="ContactsListItem">
-    <span class="ContactsListItem__lastName">{{ lastName }}</span>
-    <span class="ContactsListItem__firstName">{{ firstName }}</span>
+    <router-link class="ContactsListItem__link" :to="to">
+      <span class="ContactsListItem__lastName">{{ lastName }}</span>
+      <span class="ContactsListItem__firstName">{{ firstName }}</span>
+    </router-link>
   </li>
 </template>
 
@@ -14,6 +16,10 @@ const lastWord = value => last(split(' ', value));
 export default {
   name: 'ContactsListItem',
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -26,20 +32,32 @@ export default {
     lastName() {
       return lastWord(this.name);
     },
+    to() {
+      return {
+        name: 'contacts-show',
+        params: { id: this.id },
+      };
+    },
   },
 };
 </script>
 
 <style scoped>
 .ContactsListItem {
+}
+
+.ContactsListItem__link {
+  display: block;
   padding: 0 2rem;
   line-height: 2.625rem;
   font-size: 1.5rem;
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
 }
 
-.ContactsListItem:hover,
-.ContactsListItem.ContactsListItem--selected {
+.ContactsListItem__link:hover,
+.ContactsListItem__link.is-active {
   background-color: #e6e6e6;
 }
 

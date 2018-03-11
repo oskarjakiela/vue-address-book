@@ -5,8 +5,9 @@
     <ul class="ContactsListGroup__list">
       <contacts-list-item
         v-for="contact in contacts"
-        :key="contact.name"
+        :key="contact.id"
         :name="contact.name"
+        :id="contact.id"
       />
     </ul>
   </li>
