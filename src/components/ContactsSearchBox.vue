@@ -2,6 +2,8 @@
   <div class="ContactsSearchBox">
     <input
       class="ContactsSearchBox__input"
+      type="text"
+      name="query"
       :value="query"
       @input="onChange($event.target.value)"
     />

@@ -1,5 +1,5 @@
 /* eslint no-shadow:0 */
-import { contains, filter, pipe, prop, toLower } from 'ramda';
+import { contains, filter, map, pipe, prop, toLower } from 'ramda';
 
 // state
 const state = {
@@ -21,6 +21,9 @@ const getters = {
 
 // actions
 const actions = {
+  editContact({ commit }, contact) {
+    commit('setContact', contact);
+  },
   updateQuery({ commit }, query) {
     commit('setQuery', query);
   },
@@ -28,6 +31,15 @@ const actions = {
 
 // mutations
 const mutations = {
+  setContact(state, { id, name, fields }) {
+    state.contacts = map((contact) => {
+      if (contact.id === id) {
+        return { ...contact, name, fields };
+      }
+
+      return contact;
+    })(state.contacts);
+  },
   setQuery(state, query) {
     state.query = query;
   },

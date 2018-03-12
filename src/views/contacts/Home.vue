@@ -12,5 +12,6 @@ export default {
 
 <style scoped>
 .ContactsHome {
+  height: 100%;
 }
 </style>

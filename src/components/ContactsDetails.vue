@@ -1,12 +1,26 @@
 <template>
   <div class="ContactsDetails">
     <header class="ContactsDetails__header">
-      <IconUser width="167" height="130" />
+      <StyledIcon size="130">
+        <IconUser />
+      </StyledIcon>
+
       <h1 class="ContactsDetails__name">
         {{ contact.name }}
       </h1>
-      <IconEdit width="80" height="62" />
-      <IconRemove width="80" height="62" />
+
+      <router-link :to="{
+        name: 'contacts-edit',
+        params: { id: contact.id },
+      }">
+        <StyledIcon size="60">
+          <IconEdit />
+        </StyledIcon>
+      </router-link>
+
+      <StyledIcon size="60">
+        <IconRemove />
+      </StyledIcon>
     </header>
 
     <main class="ContactsDetails__body">
@@ -24,6 +38,7 @@
 import IconEdit from '@/assets/IconEdit.svg';
 import IconRemove from '@/assets/IconRemove.svg';
 import IconUser from '@/assets/IconUser.svg';
+import StyledIcon from '@/components/styled/Icon';
 
 export default {
   name: 'ContactsDetails',
@@ -31,6 +46,7 @@ export default {
     IconEdit,
     IconRemove,
     IconUser,
+    StyledIcon,
   },
   props: {
     contact: {
@@ -60,14 +76,6 @@ export default {
 
 .ContactsDetails__header svg {
   margin: 0 .5rem;
-}
-
-.ContactsDetails__header *:first-child {
-  margin-left: 0;
-}
-
-.ContactsDetails__header *:last-child {
-  margin-right: 0;
 }
 
 .ContactsDetails__body {
