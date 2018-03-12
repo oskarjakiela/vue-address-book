@@ -1,4 +1,3 @@
-<script>
 /* eslint no-confusing-arrow: 0 */
 import styled from 'vue-styled-components';
 
@@ -28,4 +27,3 @@ export default styled('button', buttonProps)`
     outline: 0;
   }
 `;
-</script>

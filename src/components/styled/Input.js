@@ -1,4 +1,3 @@
-<script>
 /* eslint no-confusing-arrow: 0 */
 import styled from 'vue-styled-components';
 
@@ -20,4 +19,3 @@ export default styled('input', inputProps)`
     outline: 0;
   }
 `;
-</script>

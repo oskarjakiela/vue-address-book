@@ -1,5 +1,14 @@
 /* eslint no-shadow:0 */
-import { contains, filter, map, pipe, prop, toLower } from 'ramda';
+import {
+  contains,
+  filter,
+  findIndex,
+  map,
+  pipe,
+  prop,
+  propEq,
+  toLower,
+} from 'ramda';
 
 // state
 const state = {
@@ -24,6 +33,11 @@ const actions = {
   editContact({ commit }, contact) {
     commit('setContact', contact);
   },
+
+  removeContact({ commit }, id) {
+    commit('deleteContact', id);
+  },
+
   updateQuery({ commit }, query) {
     commit('setQuery', query);
   },
@@ -31,6 +45,16 @@ const actions = {
 
 // mutations
 const mutations = {
+  deleteContact(state, id) {
+    const { contacts } = state;
+    const index = findIndex(propEq('id', id))(contacts);
+
+    state.contacts = [
+      ...contacts.slice(0, index),
+      ...contacts.slice(index + 1),
+    ];
+  },
+
   setContact(state, { id, name, fields }) {
     state.contacts = map((contact) => {
       if (contact.id === id) {
@@ -40,6 +64,7 @@ const mutations = {
       return contact;
     })(state.contacts);
   },
+
   setQuery(state, query) {
     state.query = query;
   },

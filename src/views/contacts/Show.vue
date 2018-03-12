@@ -1,12 +1,15 @@
 <template>
   <div class="ContactsShow">
-    <ContactsDetails :contact="contact" />
+    <ContactsDetails
+      :contact="contact"
+      :on-remove="onRemove"
+    />
   </div>
 </template>
 
 <script>
-import { find, propEq } from 'ramda';
-import { mapGetters } from 'vuex';
+import { dec, equals, find, findIndex, inc, propEq } from 'ramda';
+import { mapActions, mapGetters } from 'vuex';
 import ContactsDetails from '@/components/ContactsDetails';
 
 export default {
@@ -14,19 +17,34 @@ export default {
   components: {
     ContactsDetails,
   },
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+  },
   computed: {
     contact() {
       const { contacts, id } = this;
       return find(propEq('id', id))(contacts);
     },
 
+    prevId() {
+      const { contacts, id } = this;
+      const index = findIndex(propEq('id', id))(contacts);
+      const prevId = equals(0, index) ? inc(index) : dec(index);
+      return contacts[prevId].id;
+    },
+
     ...mapGetters(['contacts']),
   },
-  props: {
-    id: {
-      type: String,
-      required: true,
+  methods: {
+    onRemove() {
+      const { id, prevId } = this;
+      this.removeContact(id);
+      this.$router.push({ name: 'contacts-show', params: { id: prevId } });
     },
+    ...mapActions(['removeContact']),
   },
 };
 </script>

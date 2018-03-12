@@ -18,7 +18,7 @@
         </StyledIcon>
       </router-link>
 
-      <StyledIcon size="60">
+      <StyledIcon clickable size="60" @click.native="onRemove">
         <IconRemove />
       </StyledIcon>
     </header>
@@ -26,8 +26,13 @@
     <main class="ContactsDetails__body">
       <dl class="ContactsDetails__fields-list">
         <template v-for="field in contact.fields">
-          <dt class="ContactsDetails__field-name" :key="field.name">{{ field.name }}</dt>
-          <dd class="ContactsDetails__field-value" :key="field.value">{{ field.value }}</dd>
+          <dt class="ContactsDetails__field-name" :key="field.name">
+            {{ field.name }}
+          </dt>
+
+          <dd class="ContactsDetails__field-value" :key="field.value">
+            {{ field.value }}
+          </dd>
         </template>
       </dl>
     </main>
@@ -52,6 +57,9 @@ export default {
     contact: {
       type: Object,
       required: true,
+    },
+    onRemove: {
+      type: Function,
     },
   },
 };
