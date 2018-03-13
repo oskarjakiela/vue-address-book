@@ -9,12 +9,7 @@ import {
   propEq,
   toLower,
 } from 'ramda';
-
-// state
-const state = {
-  contacts: [],
-  query: '',
-};
+import state from '@/store/modules/contacts/state';
 
 // getters
 const getters = {

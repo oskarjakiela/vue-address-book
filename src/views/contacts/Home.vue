@@ -1,6 +1,11 @@
 <template>
   <div class="ContactsHome">
-    <router-view name="sidebar" />
+    <template v-if="emptySidebar">
+      <AppSidebar />
+    </template>
+    <template v-else>
+      <ContactsSidebar />
+    </template>
 
     <AppBody>
       <router-view />
@@ -10,11 +15,23 @@
 
 <script>
 import AppBody from '@/components/AppBody';
+import AppSidebar from '@/components/AppSidebar';
+import ContactsSidebar from '@/components/contacts/Sidebar';
 
 export default {
   name: 'ContactsHome',
   components: {
     AppBody,
+    AppSidebar,
+    ContactsSidebar,
+  },
+  computed: {
+    emptySidebar() {
+      return [
+        'contacts-add',
+        'contacts-edit',
+      ].includes(this.$route.name);
+    },
   },
 };
 </script>

@@ -8,6 +8,11 @@ export default new Router({
   linkActiveClass: 'is-active',
   mode: 'history',
   routes: [
+    {
+      path: '/',
+      name: 'home',
+      redirect: '/contacts',
+    },
     contacts,
   ],
 });

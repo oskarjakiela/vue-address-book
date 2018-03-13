@@ -1,5 +1,3 @@
-import AppSidebar from '@/components/AppSidebar';
-import ContactsSidebar from '@/components/contacts/Sidebar';
 import ContactsAdd from '@/views/contacts/Add';
 import ContactsEdit from '@/views/contacts/Edit';
 import ContactsHome from '@/views/contacts/Home';
@@ -13,34 +11,19 @@ export default {
     {
       path: 'add',
       name: 'contacts-add',
-      components: {
-        default: ContactsAdd,
-        sidebar: AppSidebar,
-      },
+      component: ContactsAdd,
     },
     {
       path: ':id',
       name: 'contacts-show',
-      components: {
-        default: ContactsShow,
-        sidebar: ContactsSidebar,
-      },
-      props: {
-        default: true,
-        sidebar: false,
-      },
+      component: ContactsShow,
+      props: true,
     },
     {
       path: ':id/edit',
       name: 'contacts-edit',
-      components: {
-        default: ContactsEdit,
-        sidebar: AppSidebar,
-      },
-      props: {
-        default: true,
-        sidebar: false,
-      },
+      component: ContactsEdit,
+      props: true,
     },
   ],
 };
