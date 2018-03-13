@@ -12,7 +12,7 @@
 
 <script>
 import { groupBy, head, pipe, prop, reverse, split } from 'ramda';
-import ContactsListGroup from '@/components/ContactsListGroup';
+import ContactsListGroup from '@/components/contacts/ListGroup';
 
 const byFirstLetterOfLastName = groupBy(
   pipe(

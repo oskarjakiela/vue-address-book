@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "ramda": "^0.25.0",
+    "uuid": "^3.2.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-styled-components": "^1.2.1",

@@ -10,7 +10,7 @@
 <script>
 import { dec, equals, find, findIndex, inc, propEq } from 'ramda';
 import { mapActions, mapGetters } from 'vuex';
-import ContactsDetails from '@/components/ContactsDetails';
+import ContactsDetails from '@/components/contacts/Details';
 
 export default {
   name: 'ContactsShow',

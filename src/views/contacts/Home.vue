@@ -1,17 +1,28 @@
 <template>
   <div class="ContactsHome">
-    <router-view/>
+    <router-view name="sidebar" />
+
+    <AppBody>
+      <router-view />
+    </AppBody>
   </div>
 </template>
 
 <script>
+import AppBody from '@/components/AppBody';
+
 export default {
   name: 'ContactsHome',
+  components: {
+    AppBody,
+  },
 };
 </script>
 
 <style scoped>
 .ContactsHome {
-  height: 100%;
+  display: flex;
+  min-height: 100%;
+  width: 100%;
 }
 </style>

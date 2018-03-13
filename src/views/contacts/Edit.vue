@@ -10,7 +10,7 @@
 <script>
 import { find, propEq } from 'ramda';
 import { mapActions, mapGetters } from 'vuex';
-import ContactsForm from '@/components/ContactsForm';
+import ContactsForm from '@/components/contacts/Form';
 
 export default {
   name: 'ContactsEdit',

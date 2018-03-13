@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import ContactsList from '@/components/ContactsList';
+import ContactsList from '@/components/contacts/List';
 
 describe('ContactsList.vue', () => {
   it('should render correct contents', () => {

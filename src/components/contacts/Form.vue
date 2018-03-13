@@ -37,7 +37,7 @@
       full-width
       sticky
     >
-      Save Changes
+      {{ submitButtonText }}
     </StyledButton>
   </form>
 </template>
@@ -63,6 +63,10 @@ export default {
     contact: {
       type: Object,
       required: true,
+    },
+    submitButtonText: {
+      type: String,
+      default: 'Save Changes',
     },
     onSubmit: {
       type: Function,

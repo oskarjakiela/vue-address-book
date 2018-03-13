@@ -25,12 +25,12 @@
 
     <main class="ContactsDetails__body">
       <dl class="ContactsDetails__fields-list">
-        <template v-for="field in contact.fields">
-          <dt class="ContactsDetails__field-name" :key="field.name">
+        <template v-for="(field, index) in contact.fields">
+          <dt class="ContactsDetails__field-name" :key="field.name + '-' + index">
             {{ field.name }}
           </dt>
 
-          <dd class="ContactsDetails__field-value" :key="field.value">
+          <dd class="ContactsDetails__field-value" :key="field.value + '-' + index">
             {{ field.value }}
           </dd>
         </template>

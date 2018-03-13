@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import ContactsListGroupHeader from '@/components/ContactsListGroupHeader';
-import ContactsListItem from '@/components/ContactsListItem';
+import ContactsListGroupHeader from '@/components/contacts/ListGroupHeader';
+import ContactsListItem from '@/components/contacts/ListItem';
 
 export default {
   name: 'ContactsListGroup',

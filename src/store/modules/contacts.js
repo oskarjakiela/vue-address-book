@@ -30,6 +30,10 @@ const getters = {
 
 // actions
 const actions = {
+  addContact({ commit }, contact) {
+    commit('insertContact', contact);
+  },
+
   editContact({ commit }, contact) {
     commit('setContact', contact);
   },
@@ -52,6 +56,13 @@ const mutations = {
     state.contacts = [
       ...contacts.slice(0, index),
       ...contacts.slice(index + 1),
+    ];
+  },
+
+  insertContact(state, contact) {
+    state.contacts = [
+      ...state.contacts,
+      contact,
     ];
   },
 
